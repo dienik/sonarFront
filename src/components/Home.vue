@@ -24,7 +24,6 @@
               <router-link to="/profile"> CARTEIRA </router-link>
             </button>
           </aside>
-
           <article>
             <img
               id="img"
