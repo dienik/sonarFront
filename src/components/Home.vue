@@ -168,7 +168,7 @@ span {
 p {
   line-height: 30px;
   max-width: 500px;
-  font-family: poppinslight;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   margin-top: 105px;
   font-size: 20px;
   margin-left: 30px;
