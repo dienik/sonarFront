@@ -24,7 +24,6 @@
               <router-link to="/profile"> CARTEIRA </router-link>
             </button>
           </aside>
-
           <article>
             <img
               id="img"
@@ -159,7 +158,7 @@ main {
 h2 {
   font-size: 86px;
   line-height: 10px;
-  font-family: poppinsmedium;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   margin-top: 65px;
   margin-left: 30px;
 }
@@ -169,7 +168,7 @@ span {
 p {
   line-height: 30px;
   max-width: 500px;
-  font-family: poppinslight;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   margin-top: 105px;
   font-size: 20px;
   margin-left: 30px;
