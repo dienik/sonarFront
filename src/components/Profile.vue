@@ -37,16 +37,17 @@
 
       <div class="block w-full overflow-x-auto">
         <table class="items-center bg-transparent w-full border-collapse">
+          <caption> </caption>
           <thead>
             <tr>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="user">
                 USUARIO
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="email">
                 EMAIL
               </th>
             </tr>
@@ -56,7 +57,7 @@
             <tr>
               <th
                 class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700"
-              >
+              id="carteira">
                 {{ carteira.username }}
               </th>
               <td
@@ -107,33 +108,34 @@
 
       <div class="block w-full overflow-x-auto">
         <table class="items-center bg-transparent w-full border-collapse">
+          <caption> </caption>
           <thead>
             <tr>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="stockname">
                 stock_name
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="simbolo">
                 stock_symbol
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="volume">
                 volume
               </th>
 
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="crated">
                 created
               </th>
 
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="updated">
                 updated
               </th>
               <th
@@ -149,7 +151,7 @@
             <tr>
               <th
                 class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700"
-              >
+              id="busca">
                 {{ busca.stock_name }}
               </th>
               <td
@@ -172,7 +174,7 @@
               <td
                 class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
               >
-                <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                <em class="fas fa-arrow-up text-emerald-500 mr-4"></em>
                 {{ busca.updated_on }}
               </td>
               <div>

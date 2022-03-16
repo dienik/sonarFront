@@ -29,8 +29,6 @@ export default {
 }
 </script>
 <style scoped>
-.login{
 
-}
 
 </style>
