@@ -158,7 +158,7 @@ main {
 h2 {
   font-size: 86px;
   line-height: 10px;
-  font-family: poppinsmedium;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   margin-top: 65px;
   margin-left: 30px;
 }
