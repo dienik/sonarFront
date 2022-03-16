@@ -21,41 +21,42 @@
 
       <div class="block w-full overflow-x-auto">
         <table class="items-center bg-transparent w-full border-collapse">
+          <caption> </caption>
           <thead>
             <tr>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+             id="tabela" >
                 stock_name
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="tabela">
                 stock_symbol
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="tabela">
                 volume
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="data">
                 price
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="data">
                 type
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="data">
                 DATA
               </th>
               <th
                 class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
-              >
+              id="data">
                 data criação
               </th>
               <th
@@ -71,7 +72,7 @@
             <tr>
               <th
                 class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700"
-              >
+              id="tbody">
                 {{ busca.stock_name }}
               </th>
               <td
@@ -102,7 +103,7 @@
               <td
                 class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
               >
-                <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                <em> class="fas fa-arrow-up text-emerald-500 mr-4"</em>
                 {{ busca.created_on }}
               </td>
                <div>

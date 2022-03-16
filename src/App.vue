@@ -1,15 +1,10 @@
 <template>
   <div id="app2">
-    <!-- <div id="home">
-    <div v-if="!this.$root.authenticated">
-      <p><router-link role="button" to="/login"></router-link></p>
-    </div>
-    <div v-if="this.$root.authenticated"></div>
-  </div> -->
 
-    <nav>
+
+    <nav aria-label="id">
       <img src="./assets/esseaqui.png" alt="" id="boi" />
-      <nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+      <nav class="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800" aria-label="id">
         <div
           class="container flex flex-wrap justify-between items-center mx-auto"
         >
