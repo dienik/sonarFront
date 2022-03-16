@@ -306,7 +306,7 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  font-family: Helvetica, Arial, Verdana, Tahoma, sans-seri;
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   height: 100%;
   background: rgba(0, 0, 0, 0.657) url("./assets/bg2.jpeg");
   background-blend-mode: darken;
