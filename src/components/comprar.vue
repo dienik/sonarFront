@@ -109,9 +109,19 @@
             </td>
             <td class="whitespace-nowrap px-6 py-4">
      <div>
-    <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()" >
-    Comprar
-    </button>
+     <button
+                  class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+                  type="button"
+                  @click="
+                      toggleModal(
+                        status.id,
+                        status.stock_name,
+                        status.stock_symbol
+                      )
+                    "
+                >
+                  Comprar
+                </button>
     <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
       <div class="relative w-auto my-6 mx-auto max-w-6xl">
         <!--content-->
@@ -128,24 +138,73 @@
             </button>
           </div>
           <!--body-->
-          <div class="relative p-6 flex-auto"
-         >
-            <p class="my-4 text-blueGray-500 text-lg leading-relaxed">
-              I always felt like I could do anything. That’s the main
-              thing people are controlled by! Thoughts- their perception
-              of themselves! They're slowed down by their perception of
-              themselves. If you're taught you can’t do anything, you
-              won’t do anything. I was taught I could do everything.
-            </p>
-          </div>
+         <div class="p-6 space-y-6">
+                          <thead>
+                            <tr class="text-gray-900">
+                              Name:
+                              {{
+                                stock_name
+                              }}
+                            </tr>
+                            <tr id="modal2" class="text-gray-900">
+                              Symbol:
+                              {{
+                                stock_symbol
+                              }}
+                            </tr>
+                            <tr id="modal2" class="text-gray-900">
+                              id:
+                              {{
+                                id
+                              }}
+                            </tr>
+                          </thead>
+                          <thead>
+                            <tr>
+                              <br />
+                              Volume:
+                              <input
+                                v-model="volume"
+                                placeholder=" vol"
+                                style="width: 120px; margin-left: 5px"
+                                type="number"
+                                step="1"
+                                min="1"
+                                class="border border-slate-300"
+                              />
+                              <label for=""></label>
+                              <br />
+                              <br />
+                              Valor: R$
+                              <input
+                                class="border"
+                                v-model="price"
+                                placeholder=" price"
+                                style="width: 120px; margin-left: 5px"
+                                type="number"
+                                step="1"
+                                min="1"
+                              />
+                              <label for=""></label>
+                            </tr>
+                          </thead>
+                        </div>
           <!--footer-->
           <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-            <button class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Close
-            </button>
-            <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Save Changes
-            </button>
+             <button
+                          class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                          type="button"
+                          v-on:click="toggleModal()"
+                        >
+                          Close
+                        </button>
+                        <button
+                          class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                          type="button"
+                          @click="comprar"
+                        >
+                          Save Changes
+                        </button>
           </div>
         </div>
       </div>
@@ -172,7 +231,16 @@ export default {
 
       user: [],
       stocks: [],
-       showModal: true
+       id_user1: 0,
+       id_users: [],
+       showModal: true,
+        stock_name: "",
+      stock_symbol: "",
+      id: "",
+      volume: "",
+      price: "",
+      id_user: "",
+      email: "",
     };
   },
   created() {
@@ -181,8 +249,58 @@ export default {
     this.toggleModal();
   },
   methods: {
-    async toggleModal(){
+     async comprar() {
+      if (this.$root.authenticated) {
+        this.claims = await this.$auth.getUser();
+        const body = {
+          id_user: {
+		id: 5,
+		
+		password: 123,
+		email:   this.claims.email,
+		dollar_balance: this.dollar_balance,
+		
+	},
+        
+          id_stock: this.id,
+          email: this.claims.email,
+          volume: this.volume,
+          price: this.price,
+          type: 1,
+          stock_name: this.stock_name,
+          stock_symbol: this.stock_symbol,
+          status: 1,
+        };
+        try {
+          var now = new Date();
+          const response = await axios.post(
+            `http://localhost:8084/orders/criar?email=${this.claims.email}`,
+            body,
+            {
+              headers: {
+                Authorization: "Bearer " + this.$auth.getAccessToken(),
+              },
+            }
+          );
+          window.alert("Order added with success! \n\n" + now);
+          this.showModal = !this.showModal;
+          console.log(response);
+          console.log(body);
+        } catch (error) {
+          window.alert(error.response.data.message + "\n\n" + now);
+          this.showModal = !this.showModal;
+          console.log(error.response.data.message);
+          console.log(body);
+        }
+      }
+    },
+    // pegar name e symbol do selecionado
+    async toggleModal(id, nome, symbol) {
       this.showModal = !this.showModal;
+      this.stock_name = nome;
+      this.stock_symbol = symbol;
+      this.id = id;
+      console.log(id, nome, symbol);
     },
     async setup1() {
       if (this.$root.authenticated) {
